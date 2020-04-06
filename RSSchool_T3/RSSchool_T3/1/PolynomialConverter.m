@@ -16,34 +16,65 @@
         }
         for (int i = 1;i<[numbers count]; i++) {
             if ([[numbers objectAtIndex:i]integerValue]>0 && [[numbers objectAtIndex:i]integerValue]!=1 && ([numbers count]-i)-1!=1  && ([numbers count]-i)-1!=0)  {
-                NSString* str4 = [NSString stringWithFormat:@"+%@x^%lu", [numbers objectAtIndex:i],([numbers count]-i)-1];
+                NSString* str4 = [NSString stringWithFormat:@"%@x^%lu", [numbers objectAtIndex:i],([numbers count]-i)-1];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str4];
             }else if ([[numbers objectAtIndex:i]integerValue]<0 &&[[numbers objectAtIndex:i]integerValue]!=1 && ([numbers count]-i)-1!=1 && ([numbers count]-i)-1!=0){
-                NSString* str5 = [NSString stringWithFormat:@"%@x^%lu", [numbers objectAtIndex:i],([numbers count]-1)-1];
+                NSInteger *revers = [[numbers objectAtIndex:i]integerValue]*-1;
+                NSString* str5 = [NSString stringWithFormat:@"%ix^%lu", revers,([numbers count]-1)-1];
+                [storageString appendString:@" "];
+                [storageString appendString:@"-"];
+                [storageString appendString:@" "];
                 [storageString appendString:str5];
             }if ([[numbers objectAtIndex:i]integerValue]==1 && ([numbers count]-i)-1!=1 && ([numbers count]-i)-1!=0) {
-                NSString* str6 = [NSString stringWithFormat:@"+x^%lu",([numbers count]-i)-1];
+                NSString* str6 = [NSString stringWithFormat:@"x^%lu",([numbers count]-i)-1];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str6];
             }else if ([[numbers objectAtIndex:i]integerValue]==-1 && ([numbers count]-i)-1!=1&& ([numbers count]-i)-1!=0){
-                NSString* str7 = [NSString stringWithFormat:@"x^%lu",([numbers count]-i)-1];
+            NSString* str7 = [NSString stringWithFormat:@"x^%lu",([numbers count]-i)-1];
+                [storageString appendString:@" "];
+                [storageString appendString:@"-"];
+                [storageString appendString:@" "];
                 [storageString appendString:str7];
             } if ([[numbers objectAtIndex:i]integerValue]>0 && [[numbers objectAtIndex:i]integerValue]!=1 && ([numbers count]-i)-1==1) {
-                NSString* str8 = [NSString stringWithFormat:@"+%@x", [numbers objectAtIndex:i]];
+                NSString* str8 = [NSString stringWithFormat:@"%@x", [numbers objectAtIndex:i]];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str8];
             }else if ([[numbers objectAtIndex:i]integerValue]<0 && [[numbers objectAtIndex:i]integerValue]!=-1 && ([numbers count]-i)-1==1){
                 NSString* str9 = [NSString stringWithFormat:@"%@x",[numbers objectAtIndex:i]];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str9];
             }    if ([[numbers objectAtIndex:i]integerValue]>0 && [[numbers objectAtIndex:i]integerValue]!=1 && ([numbers count]-i)-1!=1 && ([numbers count]-i)-1==0) {
-                NSString* str12 = [NSString stringWithFormat:@"+%@", [numbers objectAtIndex:i]];
+                NSString* str12 = [NSString stringWithFormat:@"%@", [numbers objectAtIndex:i]];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str12];
             } if ([[numbers objectAtIndex:i]integerValue]<0 && [[numbers objectAtIndex:i]integerValue]!=1 && ([numbers count]-i)-1!=1 && ([numbers count]-i)-1==0) {
                 NSString* str13 = [NSString stringWithFormat:@"%@", [numbers objectAtIndex:i]];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str13];
             }if ([[numbers objectAtIndex:i]integerValue]==1 && ([numbers count]-i)-1==1) {
-                NSString* str10 = [NSString stringWithFormat:@"+x"];
+                NSString* str10 = [NSString stringWithFormat:@"x"];
+                [storageString appendString:@" "];
+                [storageString appendString:@"+"];
+                [storageString appendString:@" "];
                 [storageString appendString:str10];
             }else if ([[numbers objectAtIndex:i]integerValue]==-1 && ([numbers count]-i)-1==1){
-                NSString* str11 = [NSString stringWithFormat:@"-x"];
+                NSString* str11 = [NSString stringWithFormat:@"x"];
+                [storageString appendString:@" "];
+                [storageString appendString:@"-"];
+                [storageString appendString:@" "];
                 [storageString appendString:str11];
             }if ([[numbers objectAtIndex:i]integerValue]==0) {
                 
